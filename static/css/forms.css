@@ -1,0 +1,38 @@
+
+
+
+.comment.author {
+    font-weight: 500;
+    width: 20%;
+}
+
+.comment.body {
+    font-weight: 200;
+    width: 80%;
+}
+
+label {
+    display: none;
+}
+
+
+
+.comment_form {
+    width: 100%;
+    height: 3rem;
+}
+
+input[name='author'] {
+    grid-area: author;
+}
+
+textarea[name='body'] {
+    height: 100%;
+    display: inline-block;
+    grid-area: body;
+    
+}
+
+input[type='submit'] {
+    grid-area: botton;
+}

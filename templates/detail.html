@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/forms.css' %}">
+{% endblock head %}
+{% block content %}
+
+<!-- post view -->
+
+    <h1>{{ post.title }}</h1>
+    <p>게시물 번호(id): {{ post.pk }}</p>
+    <p>글쓴이: {{ post.author }}</p>
+    <p>등록일: {{ post.date }}</p>
+    <p>{{ post.body }}</p>
+    <button type='button' onclick='location.href="{% url "delete" post.pk %}"'>삭제하기</button>
+    <br/>
+    <br/>
+    <hr/>
+<!-- comment : list  -->
+    <table class='comment_all'>
+    {% for obj in comments %}
+        <tr>
+            <td class='comment author'><span>{{ obj.author }}</span></td>
+            <td class='comment body'><span>{{ obj.body }}</span></td>
+        <tr>
+        {% endfor %}
+    </table>
+<!-- end  -->
+
+
+<!-- comment : form -->
+    <form class='comment_form' method='post' action=''>
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type='submit' value='등록하기'/>
+    </form>
+<!-- end -->
+
+
+{% endblock content %}
+</body>
+</html>
+
+ 

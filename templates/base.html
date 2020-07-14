@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이은정 블로그</title>
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Nanum+Gothic+Coding&&family=Notable&display=swap" rel="stylesheet">
+    <!-- google icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    {% block head %}
+      
+    {% endblock head %}
+</head>
+<body>
+    <header>
+        <h1 class='nav_item title'>SAMPLE BLOG</h1>
+        <nav class='nav'>
+            <ul>
+            <li class='nav_item' onclick="location.href='{% url 'board' %}'">
+                    <span>전체글보기</span>
+                </li>
+                <li class='nav_item' onclick="location.href='{% url 'create' %}'">
+                    <span>새글쓰기</span>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <footer>
+        <p>Copyright 2020. EUNJUNG LEE All rights reserved.</p>
+        <p>asaprocky123@likelion.org</p>
+    </footer>
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+</body>
+</html>

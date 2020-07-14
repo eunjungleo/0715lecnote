@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+{% block content %}
+    <div class='posts wrapper'>
+        {% for obj in posts.all %}
+        <article class='post_item {{ obj.pk }}' onclick="location.href='{% url 'detail' obj.pk %}'">
+            <ul class='item'>
+                <li class='post_img'>
+                    {% if obj.img %}
+                    <img class='post square' src='{{ obj.img.url }}' alt='photo {{ obj.pk }}'>
+                    {% else %}
+                    <img class='post square' src='{% static "img/empty1.png "%}' alt='{{ obj.pk }}'>
+                    {% endif %}
+                </li>
+                <li class='post_title'>
+                    <span>{{ obj.title }}</span>
+                </li>
+                <li class='post_author'>
+                    <span>{{ obj.author }}</span>
+                </li>
+                <li class='post_date'>
+                    <span>{{ obj.date }}</span>
+                </li>
+            </ul>
+        </article>
+        {% endfor %}
+    </table>
+{% endblock %}
+</body>
+</html>
+
